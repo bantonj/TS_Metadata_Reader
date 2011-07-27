@@ -1,0 +1,21 @@
+TS Metadata reader and parser. It iterates through each TS packet and decodes the header. It also provides a
+way to skip to any packet non-linearly, and supports iterating backwards.
+
+It is useful for basic TS metadata analysis scripting, or could be used as the basis of a more complex TS metadata
+analysis tool.
+
+Note: Does not decode or de-multiplex a/v.
+
+Also has command line interface to measure the duration of ts files based on pts or dts. Run as main for cli.
+
+Simple Example Usage:
+
+    file = "C:/videofiles/tsfile.ts"
+    ts = TSRead(file)
+    for x in ts:
+        print x.decodedpts, x.decodeddts
+        
+        
+Note 2: The code is not beautiful, but it works. I plan to pretty it up in the future.
+
+Copyright Joshua Banton
